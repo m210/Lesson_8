@@ -11,6 +11,10 @@ public class Main {
         task3();
         checkDoubles("abcdefghijkk"); //task 4
         task5();
+
+        // High difficulty
+        float average = calcAverage(generateRandomArray());
+        System.out.println("Средняя сумма трат за месяц составила " + average + " рублей");
     }
 
     public static boolean isLeap(int year) {
@@ -85,4 +89,26 @@ public class Main {
             arr[i] = tmp;
         }
     }
+
+    public static int[] generateRandomArray() {
+        java.util.Random random = new java.util.Random();
+        int[] arr = new int[30];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = random.nextInt(100_000) + 100_000;
+        }
+        return arr;
+    }
+
+    public static int calcSum(int[] arr) {
+        int sum = 0;
+        for (int i : arr)
+            sum += i;
+        return sum;
+    }
+
+    public static float calcAverage(int[] arr) {
+        int sum = calcSum(arr);
+        return sum / (float) arr.length;
+    }
+
 }
